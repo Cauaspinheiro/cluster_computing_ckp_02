@@ -1,0 +1,13 @@
+# app-service.yaml
+apiVersion: v1
+kind: Service
+metadata:
+  name: cluster-computing-ckp02
+spec:
+  selector:
+    app: cluster-computing-ckp02
+  ports:
+    - protocol: TCP
+      port: 5002
+      targetPort: 5000
+  type: LoadBalancer

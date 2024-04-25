@@ -1,0 +1,22 @@
+# app-deployment.yaml
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: cluster-computing-ckp02
+spec:
+  replicas: 3
+  selector:
+    matchLabels:
+      app: cluster-computing-ckp02
+  template:
+    metadata:
+      labels:
+        app: cluster-computing-ckp02
+    spec:
+      containers:
+      - name: cluster-computing-ckp02
+        ports:
+        - containerPort: 5000
+        command: ["python", "/app/app.py"]
+        image: cauapinheiro/cluster_computing_ckp02
+
